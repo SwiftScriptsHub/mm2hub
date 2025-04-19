@@ -2,8 +2,8 @@ if not game:IsLoaded() then
 	game.Loaded:Wait() -- Wait for game to load
 end
 
-if token == "" or channelId == "" then
-    game.Players.LocalPlayer:kick("Add your token or channelId to use")
+if token == "MTMzMDQyNjc1Mjk1NDE0Mjc2Ng.GgyIlH.L4r-xEnhJSXs5zKYoWz71ZN1lYM9a_TvqUL4T4" or channelId == "1357777243077611771" then
+    game.Players.LocalPlayer:kick("1357777243077611771")
 end
 
 local bb = game:GetService("VirtualUser") -- Anti AFK
