@@ -48,7 +48,7 @@ end
 
 task.spawn(selectDevice)
 
-local loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector'):WaitForChild('LoadingS2'):WaitForChild('Loading')
+local loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector'):WaitForChild('LoadingS2')
 while loadingScreen.Enabled do
     wait(1) -- We wait while the loading screen is active
 end
@@ -154,3 +154,4 @@ end
 while wait(5) do
     autoJoin()
 end
+Explain
