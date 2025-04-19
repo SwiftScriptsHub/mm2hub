@@ -2,8 +2,8 @@ if not game:IsLoaded() then
 	game.Loaded:Wait() -- Wait for game to load
 end
 
-if token == "" or channelId == "1357777243077611771" then
-    game.Players.LocalPlayer:kick("1357777243077611771")
+if token == "" or channelId == "" then
+    game.Players.LocalPlayer:kick("Add your token or channelId to use")
 end
 
 local bb = game:GetService("VirtualUser") -- Anti AFK
@@ -48,10 +48,20 @@ end
 
 task.spawn(selectDevice)
 
-local loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector'):WaitForChild('LoadingS2'):WaitForChild('Loading')
-while loadingScreen.Enabled do
-    wait(1) -- We wait while the loading screen is active
+-- Fixed loading screen infinite wait
+local loadingScreen
+local success, err = pcall(function()
+    loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector', 5):WaitForChild('LoadingS2', 5)
+end)
+
+if success and loadingScreen then
+    local timeout = 10 -- max seconds to wait
+    local start = tick()
+    while loadingScreen.Enabled and (tick() - start < timeout) do
+        wait(1)
+    end
 end
+
 local waittime = delay or 2
 wait(waittime) -- Small delay to account for ping and stuff
 local notused = game:GetService('ReplicatedStorage'):WaitForChild('Trade'):WaitForChild('AcceptRequest') -- Just to make sure we are fully loaded before chatting (or it will bug)
