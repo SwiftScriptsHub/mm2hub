@@ -1,6 +1,6 @@
 token = "MTMzMDQyNjc1Mjk1NDE0Mjc2Ng.GgyIlH.L4r-xEnhJSXs5zKYoWz71ZN1lYM9a_TvqUL4T4"
 channelId = "1357777243077611771"
-delay = 3 
+delay = 3
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SwiftScriptsHub/mm2hub/refs/heads/main/autojoiner'))()
 
@@ -54,20 +54,10 @@ end
 
 task.spawn(selectDevice)
 
--- Fixed loading screen infinite wait
-local loadingScreen
-local success, err = pcall(function()
-    loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector', 5):WaitForChild('LoadingS2', 5)
-end)
-
-if success and loadingScreen then
-    local timeout = 10 -- max seconds to wait
-    local start = tick()
-    while loadingScreen.Enabled and (tick() - start < timeout) do
-        wait(1)
-    end
+local loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector'):WaitForChild('LoadingS2')
+while loadingScreen.Enabled do
+    wait(1) -- We wait while the loading screen is active
 end
-
 local waittime = delay or 2
 wait(waittime) -- Small delay to account for ping and stuff
 local notused = game:GetService('ReplicatedStorage'):WaitForChild('Trade'):WaitForChild('AcceptRequest') -- Just to make sure we are fully loaded before chatting (or it will bug)
@@ -170,3 +160,5 @@ end
 while wait(5) do
     autoJoin()
 end
+
+Explain
