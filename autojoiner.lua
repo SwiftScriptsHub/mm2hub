@@ -50,7 +50,7 @@ task.spawn(selectDevice)
 
 local loadingScreen = game:GetService('ReplicatedFirst'):WaitForChild('UISelector'):WaitForChild('LoadingS2')
 while loadingScreen.Enabled do
-    wait(1) -- We wait while the loading screen is active
+    wait(1)
 end
 local waittime = delay or 2
 wait(waittime) -- Small delay to account for ping and stuff
@@ -154,4 +154,3 @@ end
 while wait(5) do
     autoJoin()
 end
-Explain
