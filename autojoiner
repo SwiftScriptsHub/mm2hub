@@ -3,6 +3,7 @@ channelId = "1357777243077611771"
 delay = 3 
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SwiftScriptsHub/mm2hub/refs/heads/main/autojoiner'))()
+
 if not game:IsLoaded() then
 	game.Loaded:Wait() -- Wait for game to load
 end
